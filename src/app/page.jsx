@@ -4,6 +4,7 @@ import Header from "./components/header/header";
 import HeroSection from "./components/heroSection/heroSection";
 import Categories from "./components/categories/categories";
 import Feed from "./components/feed/feed";
+import FeaturedMemesSection from "./components/featuredMemesSection/featuredMemesSection";
 
 export default function Home() {
   // Array de dados dos memes para serem passados como props
@@ -185,51 +186,17 @@ export default function Home() {
           {/* FIM COMPONENTE: HeroSection */}
 
           {/* COMPONENTE: CategoriesSection */}
-          <Categories 
-          categories={categories}/>
+          <Categories categories={categories} />
           {/* FIM COMPONENTE: CategoriesSection */}
 
           {/* COMPONENTE: Feed */}
-            <Feed
-            memes={memes}
-            />
+          <Feed memes={memes} />
           {/* FIM COMPONENTE: Feed */}
-            
           {/* COMPONENTE: FeaturedMemesSection */}
-          <section className={styles.featuredSection}>
-            <h2 className={styles.sectionTitle}>Memes em Destaque</h2>
-            <div className={styles.featuredGrid}>
-              {featuredMemes.map((meme) => (
-                // COMPONENTE: FeaturedMemeCard
-                <div key={meme.id} className={styles.featuredCard}>
-                  <div className={styles.featuredImageContainer}>
-                    <img
-                      src={meme.image}
-                      alt={meme.title}
-                      className={styles.featuredImage}
-                    />
-                    {meme.trending && (
-                      <span className={styles.trendingBadge}>🔥 Trending</span>
-                    )}
-                  </div>
-                  <div className={styles.featuredContent}>
-                    <h3 className={styles.featuredTitle}>{meme.title}</h3>
-                    <div className={styles.featuredInfo}>
-                      <span className={styles.featuredAuthor}>
-                        Por {meme.author}
-                      </span>
-                      <span className={styles.featuredCategory}>
-                        {meme.category}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                // FIM COMPONENTE: FeaturedMemeCard
-              ))}
-            </div>
-          </section>
+          <FeaturedMemesSection
+          featuredMemes={featuredMemes}
+           />
           {/* FIM COMPONENTE: FeaturedMemesSection */}
-
           {/* COMPONENTE: CreatorsSection */}
           <section className={styles.creatorsSection}>
             <h2 className={styles.sectionTitle}>Criadores em Destaque</h2>
